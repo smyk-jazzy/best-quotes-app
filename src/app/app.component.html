@@ -1,23 +1,11 @@
 <app-navbar title="Cytaty Smyka!"></app-navbar>
 <div class="container q-container">
   <!--Dodawanie cytatu-->
-  <button class="btn-floating teal add-button" (click)="changeShowAddForm()">
+  <button class="btn-floating teal add-button" (click)="addForm.changeShowAddForm()">
     <!-- (click)="changeAddPanelVisibility()" -->
     <i class="material-icons">add</i>
   </button>
-
-  <!-- <div #addPanel class="row" [style.visibility]="addPanelVisibilityStatus"> -->
-  <div #addPanel class="row edit-row" [class.drawer]="showAddForm">
-    <div class="input-field col s4">
-      <input type="text" placeholder="Autor" [(ngModel)]="quotation.author" />
-    </div>
-    <div class="input-field col s6">
-      <input type="text" placeholder="Cytat" [(ngModel)]="quotation.sentence" />
-    </div>
-    <div class="input-field col s2">
-      <button class="btn small" (click)="addQuotation()">Dodaj</button>
-    </div>
-  </div>
+  <app-add-form #addForm (newQuotation)="onNewQuotation($event)" ></app-add-form>
   <!-- Koniec dodawanie cytatu -->
 
   <div class="row">
