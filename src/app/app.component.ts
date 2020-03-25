@@ -42,9 +42,11 @@ export class AppComponent {
       alert('Wypełnij wszystkie pola');
       return;
     }
-
-
     this.quotations.unshift(this.quotation);
     this.quotation = { author: '', sentence: '', votes: 0 };
+  }
+
+  addVote(quotation: Quotation, value: number){
+    quotation.votes += value;
   }
 }
