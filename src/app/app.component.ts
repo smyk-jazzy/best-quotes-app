@@ -33,12 +33,14 @@ export class AppComponent {
   }
 
   checkQuotation(): boolean {
-    return this.quotation.author.trim() !== ''
-    && this.quotation.sentence.trim() !== '';
+    return (
+      this.quotation.author.trim() !== '' &&
+      this.quotation.sentence.trim() !== ''
+    );
   }
 
   addQuotation() {
-    if( !this.checkQuotation()){
+    if (!this.checkQuotation()) {
       alert('Wypełnij wszystkie pola');
       return;
     }
@@ -46,7 +48,14 @@ export class AppComponent {
     this.quotation = { author: '', sentence: '', votes: 0 };
   }
 
-  addVote(quotation: Quotation, value: number){
+  addVote(quotation: Quotation, value: number) {
     quotation.votes += value;
+  }
+  bestQuotes(): Quotation[] {
+    return this.quotations.filter(item => item.votes > 0);
+  }
+
+  worstQuotes(): Quotation[] {
+    return this.quotations.filter(item => item.votes < 0);
   }
 }
