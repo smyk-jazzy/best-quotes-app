@@ -1,17 +1,20 @@
 <!-- Nagłówek -->
 <nav>
   <div class="nav-wrapper teal darken-3">
-    <span class="brand-logo center">Najlepsze cytaty Smyka</span>
+    <span class="brand-logo center">Najlepsze cytaty Smyka!</span>
   </div>
 </nav>
 <!-- koniec nagłówka -->
 
 <div class="container q-container">
   <!--Dodawanie cytatu-->
-  <button class="btn-floating teal add-button">
+  <button class="btn-floating teal add-button" (click)="changeShowAddForm()">
+    <!-- (click)="changeAddPanelVisibility()" -->
     <i class="material-icons">add</i>
   </button>
-  <div class="row">
+
+  <!-- <div #addPanel class="row" [style.visibility]="addPanelVisibilityStatus"> -->
+  <div #addPanel class="row edit-row" [class.drawer]="showAddForm">
     <div class="input-field col s4">
       <input type="text" placeholder="Autor" />
     </div>
@@ -29,40 +32,29 @@
     <div class="col s8">
       <div class="row">
         <div class="col s12">
-          <div class="card teal accent-4 hoverable">
-            <div class="card-content white-text">
-              <span class="card-title">
-                Jeśli nie chcesz mojej zguby, krrrokodyla daj mi luby.
-              </span>
-              Aleksander Fredro
+
+          <ng-container *ngFor="let item of quotations; let odd = odd" >
+            <div #rowItem class="card teal hoverable"
+              [ngClass]="odd ? 'accent-4' : 'accent-5'"
+            >
+              <div class="card-content white-text">
+                <span class="card-title">
+                  {{item.sentence}}
+                </span>
+                {{item.author}}
+              </div>
+              <div class="card-action right-align">
+                <span class="badge grey darken-2 left white-text">{{item.votes}}</span>
+                <button class="btn blue mr-5">
+                  <i class="material-icons">exposure_plus_1</i>
+                </button>
+                <button class="btn brown">
+                  <i class="material-icons">exposure_neg_1</i>
+                </button>
+              </div>
             </div>
-            <div class="card-action right-align">
-              <span class="badge grey darken-2 left white-text">7</span>
-              <button class="btn blue mr-5">
-                <i class="material-icons">exposure_plus_1</i>
-              </button>
-              <button class="btn brown">
-                <i class="material-icons">exposure_neg_1</i>
-              </button>
-            </div>
-          </div>
-          <div class="card teal accent-5 hoverable">
-            <div class="card-content white-text">
-              <span class="card-title">
-                Jeśli nie chcesz mojej zguby, Sylwestra daj mi luby.
-              </span>
-              Aleksander Fredro
-            </div>
-            <div class="card-action right-align">
-              <span class="badge grey darken-2 left white-text">7</span>
-              <button class="btn blue mr-5">
-                <i class="material-icons">exposure_plus_1</i>
-              </button>
-              <button class="btn red">
-                <i class="material-icons">exposure_neg_1</i>
-              </button>
-            </div>
-          </div>
+          </ng-container>
+
         </div>
       </div>
     </div>
