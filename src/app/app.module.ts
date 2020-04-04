@@ -8,9 +8,18 @@ import { RankingComponent } from './ranking/ranking.component';
 import { AddFormComponent } from './add-form/add-form.component';
 import { ButtonComponent } from './button/button.component';
 import { ListItemComponent } from './list-item/list-item.component';
+import { RankButtonsComponent } from './rank-buttons/rank-buttons.component';
 
 @NgModule({
-  declarations: [AppComponent, NavbarComponent, RankingComponent, AddFormComponent, ButtonComponent, ListItemComponent],
+  declarations: [
+    AppComponent,
+    NavbarComponent,
+    RankingComponent,
+    AddFormComponent,
+    ButtonComponent,
+    ListItemComponent,
+    RankButtonsComponent,
+  ],
   imports: [BrowserModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],

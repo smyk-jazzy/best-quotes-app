@@ -13,8 +13,5 @@ export class ListItemComponent  {
   odd: boolean;
 
   @Output()
-  plusEvent = new EventEmitter<void>();
-  @Output()
-  minusEvent = new EventEmitter<Quotation>();
-
+  valueEvent = new EventEmitter<number>();
 }

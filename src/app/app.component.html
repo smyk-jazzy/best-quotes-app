@@ -17,14 +17,13 @@
     <div class="col s8">
       <div class="row">
         <div class="col s12">
-
           <ng-container *ngFor="let item of quotations; let odd = odd">
-            <app-list-item [item]="item" [odd]="odd"
-             (plusEvent)="addVote(item, 1)"
-             (minusEvent)="addVote($event, -1)"
+            <app-list-item
+              [item]="item"
+              [odd]="odd"
+              (valueEvent)="addVote(item, $event)"
             >
-            </app-list-item  >
-
+            </app-list-item>
           </ng-container>
         </div>
       </div>
